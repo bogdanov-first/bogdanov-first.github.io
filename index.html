@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Эдуард Богданов — дизайнер продукта</title>
+<meta name="description" content="Портфолио Эдуарда Богданова, дизайнера продукта: кейсы DriverApp, TMS, LMS, KPoint, KCourier.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+body{margin:0;background:#FCFCFC}
+a{color:#141414}a:hover{color:#555555}
+strong{font-weight:500}
+.pill-btn{cursor:pointer}
+.pill-btn:hover{background:#E4E4E4 !important}
+.pill-btn:focus-visible,a:focus-visible{outline:2px solid #141414;outline-offset:2px}
+.pf-cover-link img{transition:transform 600ms cubic-bezier(.2,.7,.2,1)}
+.pf-cover-link:hover img{transform:scale(1.03)}
+.cs p{margin:0 0 1em 0}
+.cs h2{margin:2.6em 0 0.8em 0;font-size:1.35em;line-height:1.15;font-weight:500;letter-spacing:-0.01em}
+.cs h3{margin:1.8em 0 0.6em 0;font-size:1em;font-weight:500}
+.cs ol{margin:0 0 1em 0;padding-left:1.3em}
+.cs li{margin:0 0 0.6em 0;padding-left:0.2em}
+.cs figure{margin:2em 0}
+.cs figcaption{margin-top:0.65em;color:#6B6B6B;font-size:0.85em}
+.cs-text{max-width:40em}
+.cs-note{background:#F3F3F3;border-radius:1.1em;padding:1em 1.1em;margin:0 0 1em 0;max-width:40em;box-sizing:border-box}
+.cs-note p:last-child{margin-bottom:0}
+.cs-label{color:#6B6B6B;font-size:0.85em;margin-bottom:0.35em}
+.cs-media{border-radius:clamp(16px, 1.8vw, 32px);overflow:hidden;background:#F3F3F3}
+.cs-media img,.cs-media video{display:block;width:100%;height:auto}
+.cs-media.is-white{background:#FFFFFF;box-shadow:inset 0 0 0 1px #ECECEC}
+.cs-media.is-tall{display:flex;justify-content:center}
+.cs-media.is-tall img{width:58%}
+@media (max-width: 760px){
+  .pf-row{flex-wrap:wrap !important;align-items:flex-start !important;justify-content:flex-start !important;gap:0 !important;row-gap:4px !important;padding:var(--pt) 12px 80px 12px !important;transition:padding-top 650ms cubic-bezier(.65,0,.25,1)}
+  .pf-name{width:auto !important;flex:1 1 100% !important;order:0;max-width:none !important;overflow:visible !important;transition:opacity 400ms ease, max-height 500ms ease !important;max-height:4em}
+  .pf-row.hdr-off .pf-name{opacity:0 !important;max-height:0;margin-bottom:-4px}
+  .pf-name-sticky{position:static !important;left:auto !important;display:flex;justify-content:center}
+  .pf-name-pill{width:100%;max-width:var(--nmw);justify-content:center;transition:max-width 1000ms cubic-bezier(.65,0,.25,1), opacity 600ms ease, background 1000ms ease !important}
+  .pf-col{display:contents !important}
+  .pf-pw{position:sticky !important;left:auto !important;top:0 !important;padding:4px 0 8px 0;margin:-4px 0 -8px 0;background:#FCFCFC;flex:none !important;box-sizing:border-box;overflow:hidden;transition:width var(--wt), opacity 600ms ease !important}
+  .pf-pw::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px;background:linear-gradient(#FCFCFC, rgba(252,252,252,0));pointer-events:none}
+  .pf-wpill{order:1;width:var(--mw1) !important}
+  .pf-apill{order:2;width:var(--mw2) !important}
+  .pf-bpill{order:3;width:var(--mw3) !important}
+  .pf-cpill{order:4;width:var(--mw4) !important}
+  .pf-npill{order:5;width:var(--mw5) !important}
+  .pf-tpill{order:6;width:var(--mw6) !important}
+  .pf-content{order:7;flex:1 1 100%;min-width:0}
+  .pf-card{flex-direction:column !important;gap:12px !important}
+  .pf-card-img{flex:none !important;width:100% !important;aspect-ratio:20 / 17 !important}
+  .pf-about-top{flex-direction:column-reverse !important}
+  .cs-media.is-tall img{width:100%}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div ref="{{refs.root}}" style="position: relative; height: 100vh; overflow: hidden; background: #FCFCFC; color: #141414; font-family: 'Helvetica Neue', Helvetica, 'Golos Text', sans-serif; font-size: clamp(15px, calc(0.55vw + 10px), 21px); line-height: 1.3; -webkit-font-smoothing: antialiased">
+
+<div aria-hidden="true" style="position: absolute; left: 0; top: 0; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; display: flex; white-space: nowrap">
+<span ref="{{refs.mName}}" style="display: inline-flex; padding: 0 1.1em"><span style="font-weight: 500">Эдуард Богданов</span>&nbsp;- Дизайнер продукта</span>
+<span ref="{{refs.mWorks}}" style="display: inline-flex; padding: 0 1.1em">Избранные работы</span>
+<span ref="{{refs.mAbout}}" style="display: inline-flex; padding: 0 1.1em">Обо мне</span>
+<span ref="{{refs.mBack}}" style="display: inline-flex; padding: 0 1.1em">Назад к работам</span>
+<span ref="{{refs.mNext}}" style="display: inline-flex; padding: 0 1.1em">Следующий кейс</span>
+<span ref="{{refs.mTg}}" style="display: inline-flex; padding: 0 1.1em">Telegram</span>
+</div>
+
+<div ref="{{refs.scroller}}" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: contain; -webkit-overflow-scrolling: touch">
+<div ref="{{refs.row}}" class="pf-row {{rowCls}}" style="display: flex; justify-content: center; align-items: stretch; gap: 0px; box-sizing: border-box; {{rowVars}} padding: {{centerTop}}px clamp(12px, 2vw, 40px) 160px clamp(12px, 2vw, 40px); min-height: 100vh">
+
+<div class="pf-name" style="flex: 0 0 auto; {{nameCol}}">
+<div class="pf-name-sticky" style="position: sticky; top: {{centerTop}}px; z-index: 3">
+<div class="pf-name-pill" style="--nmw: {{nmw}}; max-width: 100%; height: 2.25em; box-sizing: border-box; display: flex; align-items: center; padding: 0 1.1em; border-radius: 999px; white-space: nowrap; overflow: hidden; {{nameStyle}}">
+<span style="color: #141414; font-weight: 500">Эдуард Богданов</span><span style="display: inline-block; overflow: hidden; color: #6B6B6B; {{subStyle}}">&nbsp;- Дизайнер продукта</span>
+</div>
+</div>
+</div>
+
+<div class="pf-col" style="{{worksCol}}">
+<div class="pf-pw pf-wpill" style="position: sticky; top: {{worksTop}}px; z-index: 2; {{worksPillWrap}}">
+<button class="pill-btn" type="button" aria-pressed="{{worksActive}}" onClick="{{goWorks}}" style="height: 2.25em; width: 100%; box-sizing: border-box; display: flex; align-items: center; padding: 0 1.1em; border: 0; border-radius: 999px; background: {{worksBg}}; font: inherit; text-align: left; white-space: nowrap; overflow: hidden; transition: color 400ms ease, background 400ms ease; color: {{worksColor}}">Избранные работы<span style="display: inline-block; overflow: hidden; {{yearsStyle}}">&nbsp;2022–26</span></button>
+</div>
+<sc-if value="{{showWorks}}" hint-placeholder-val="{{ true }}">
+<div class="pf-content pf-bounce" style="display: flex; flex-direction: column; gap: 1.1em; padding-top: 1.1em">
+
+<article class="pf-card" style="display: flex; gap: 1.1em; align-items: flex-start; transition-property: opacity, transform; {{cardAnim}} transition-delay: {{dl.c0}}">
+<a class="pf-card-img pf-cover-link" href="#driverapp" onClick="{{openCase}}" aria-label="DriverApp — открыть кейс" style="flex: 0 0 47%; aspect-ratio: 1 / 1; border-radius: clamp(18px, 2vw, 36px); background: #F3F3F3; overflow: hidden; display: block">
+<img src="assets/cover-driverapp.jpg" alt="Обложка проекта DriverApp" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</a>
+<div style="flex: 1 1 12em; min-width: 0; display: flex; flex-direction: column; gap: 0.65em; padding-top: 0.4em">
+<div>DriverApp</div>
+<div style="max-width: 24em">Мобильное приложение для водителей для контроля перевозок.</div>
+<div>2025–26</div>
+<a href="#driverapp" onClick="{{openCase}}" style="text-underline-offset: 3px">Подробнее о проекте →</a>
+</div>
+</article>
+
+<article class="pf-card" style="display: flex; gap: 1.1em; align-items: flex-start; transition-property: opacity, transform; {{cardAnim}} transition-delay: {{dl.c1}}">
+<div class="pf-card-img" style="flex: 0 0 47%; aspect-ratio: 1 / 1; border-radius: clamp(18px, 2vw, 36px); background: #F3F3F3; overflow: hidden">
+<img src="assets/cover-tms.jpg" alt="Обложка проекта TMS" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</div>
+<div style="flex: 1 1 12em; min-width: 0; display: flex; flex-direction: column; gap: 0.65em; padding-top: 0.4em">
+<div>TMS</div>
+<div style="max-width: 24em">Система управления транспортом. Планирование и сопровождение перевозок, управление маршрутами, перевозчиками, тарифами и транспортными документами.</div>
+<div>2025–26</div>
+<div style="color: #6B6B6B">В прогрессе…</div>
+</div>
+</article>
+
+<article class="pf-card" style="display: flex; gap: 1.1em; align-items: flex-start; transition-property: opacity, transform; {{cardAnim}} transition-delay: {{dl.c2}}">
+<div class="pf-card-img" style="flex: 0 0 47%; aspect-ratio: 1 / 1; border-radius: clamp(18px, 2vw, 36px); background: #F3F3F3; overflow: hidden">
+<img src="assets/cover-lms.jpg" alt="Обложка проекта LMS" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</div>
+<div style="flex: 1 1 12em; min-width: 0; display: flex; flex-direction: column; gap: 0.65em; padding-top: 0.4em">
+<div>LMS</div>
+<div style="max-width: 24em">Система управления логистикой. Создание логистических плеч, пунктов, отсечек и отслеживание посылок.</div>
+<div>2026</div>
+<div style="color: #6B6B6B">В прогрессе…</div>
+</div>
+</article>
+
+<article class="pf-card" style="display: flex; gap: 1.1em; align-items: flex-start; transition-property: opacity, transform; {{cardAnim}} transition-delay: {{dl.c3}}">
+<div class="pf-card-img" style="flex: 0 0 47%; aspect-ratio: 1 / 1; border-radius: clamp(18px, 2vw, 36px); background: #F3F3F3; overflow: hidden">
+<img src="assets/cover-kpoint.jpg" alt="Обложка проекта KPoint" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</div>
+<div style="flex: 1 1 12em; min-width: 0; display: flex; flex-direction: column; gap: 0.65em; padding-top: 0.4em">
+<div>KPoint</div>
+<div style="max-width: 24em">Мобильное приложение для администраторов ПВЗ.</div>
+<div>2023</div>
+<div style="color: #6B6B6B">В прогрессе…</div>
+</div>
+</article>
+
+<article class="pf-card" style="display: flex; gap: 1.1em; align-items: flex-start; transition-property: opacity, transform; {{cardAnim}} transition-delay: {{dl.c4}}">
+<div class="pf-card-img" style="flex: 0 0 47%; aspect-ratio: 1 / 1; border-radius: clamp(18px, 2vw, 36px); background: #F3F3F3; overflow: hidden">
+<img src="assets/cover-kcourier.jpg" alt="Обложка проекта KCourier" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</div>
+<div style="flex: 1 1 12em; min-width: 0; display: flex; flex-direction: column; gap: 0.65em; padding-top: 0.4em">
+<div>KCourier</div>
+<div style="max-width: 24em">Мобильное приложение для курьеров.</div>
+<div>2022 → 2023</div>
+<div style="color: #6B6B6B">В прогрессе…</div>
+</div>
+</article>
+
+<article class="pf-card" style="display: flex; gap: 1.1em; align-items: flex-start; transition-property: opacity, transform; {{cardAnim}} transition-delay: {{dl.c5}}">
+<div class="pf-card-img" style="flex: 0 0 47%; aspect-ratio: 1 / 1; border-radius: clamp(18px, 2vw, 36px); background: #F3F3F3; overflow: hidden">
+<img src="assets/cover-kcourier-admin.jpg" alt="Обложка проекта KCourier admin" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</div>
+<div style="flex: 1 1 12em; min-width: 0; display: flex; flex-direction: column; gap: 0.65em; padding-top: 0.4em">
+<div>KCourier admin</div>
+<div style="max-width: 24em">Админка для управления заказами, маршрутами, зонами доставки, сотрудниками и таймслотами.</div>
+<div>2022 → 2023</div>
+<div style="color: #6B6B6B">В прогрессе…</div>
+</div>
+</article>
+
+</div>
+</sc-if>
+</div>
+
+<div class="pf-col" style="{{aboutCol}}">
+<div class="pf-pw pf-apill" style="position: sticky; top: {{aboutTop}}px; z-index: 2; {{aboutPillWrap}}">
+<button class="pill-btn" type="button" aria-pressed="{{aboutActive}}" onClick="{{goAbout}}" style="height: 2.25em; width: 100%; box-sizing: border-box; display: flex; align-items: center; padding: 0 1.1em; border: 0; border-radius: 999px; background: {{aboutBg}}; font: inherit; text-align: left; white-space: nowrap; overflow: hidden; transition: color 400ms ease, background 400ms ease; color: {{aboutColor}}">Обо мне</button>
+</div>
+<sc-if value="{{showAbout}}" hint-placeholder-val="{{ false }}">
+<div class="pf-content pf-bounce">
+<div style="padding-top: 1.1em; transition-property: opacity, transform; {{cardAnim}}">
+<section style="background: #F3F3F3; border-radius: clamp(18px, 1.6vw, 28px); padding: clamp(16px, 1.6vw, 28px); display: flex; flex-direction: column; gap: 2.2em">
+
+<div class="pf-about-top" style="display: flex; gap: 1.3em; justify-content: space-between; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 1.3em; max-width: 38em">
+<p style="margin: 0">Проектирую сложные продукты с нуля и развиваю существующие.<br>Погружаюсь в процессы, разбираюсь в предметной области и продумываю продукт целиком — от пользовательских сценариев до интерфейса.</p>
+<p style="margin: 0">Есть большой опыт в развитии дизайн-систем и проектировании сложных компонентов.<br>Начинал с графического и веб-дизайна, поэтому сочетаю сильную UX-проработку с вниманием к визуалу и деталям.</p>
+<p style="margin: 0">Помогаю обучать и развивать младших и средних специалистов.</p>
+</div>
+<img src="assets/avatar.png" alt="Эдуард Богданов" style="width: 8.5em; height: 8.5em; border-radius: 999px; object-fit: cover; flex: none">
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3em; max-width: 38em">
+<div style="display: flex; flex-direction: column; gap: 0.65em">
+<div>(9)</div>
+<div>лет в дизайне</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.65em">
+<div>(6)</div>
+<div>лет в продуктовом дизайне</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 1.1em">
+<div style="display: flex; align-items: center; gap: 1.1em">
+<img src="assets/logo-magnit.png" alt="Логотип Магнит Маркет" style="width: 2.4em; height: 2.4em; border-radius: 0.65em; object-fit: cover; flex: none">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div>Магнит Маркет</div>
+<div style="color: #6B6B6B">Senior Product Designer, 3 года</div>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 1.1em">
+<img src="assets/logo-kazanexpress.png" alt="Логотип KazanExpress" style="width: 2.4em; height: 2.4em; border-radius: 0.65em; object-fit: cover; flex: none">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div>KazanExpress</div>
+<div style="color: #6B6B6B">Product Designer, 3 года</div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 1.3em">
+<a href="https://kazan.hh.ru/applicant/resumes/view?resume=39c35d7dff0cc618410039ed1f6f35726b4443" target="_blank" rel="noopener" style="text-underline-offset: 3px">Резюме на hh →</a>
+<a href="assets/resume-bogdanov.pdf" target="_blank" rel="noopener" style="text-underline-offset: 3px">Резюме PDF →</a>
+<a href="https://t.me/bogdanovfirst" target="_blank" rel="noopener" style="text-underline-offset: 3px">Телеграм →</a>
+</div>
+
+</section>
+</div>
+</div>
+</sc-if>
+</div>
+
+<div class="pf-col" style="{{backCol}}">
+<div class="pf-pw pf-bpill" style="position: sticky; top: {{centerTop}}px; z-index: 3; {{backPillWrap}}">
+<button class="pill-btn" type="button" onClick="{{goBack}}" style="height: 2.25em; width: 100%; box-sizing: border-box; display: flex; align-items: center; padding: 0 1.1em; border: 0; border-radius: 999px; background: #F3F3F3; font: inherit; color: #141414; text-align: left; white-space: nowrap; overflow: hidden">Назад к работам</button>
+</div>
+</div>
+
+<div class="pf-col" style="{{caseCol}}">
+<div class="pf-pw pf-cpill" style="position: sticky; top: 20px; z-index: 2; {{casePillWrap}}">
+<div style="height: 2.25em; width: 100%; box-sizing: border-box; display: flex; align-items: center; padding: 0 1.1em; border-radius: 999px; background: #E9E9E9; white-space: nowrap; overflow: hidden">DriverApp<span style="color: #6B6B6B">&nbsp;· 2025–26</span></div>
+</div>
+<sc-if value="{{showCase}}" hint-placeholder-val="{{ false }}">
+<div class="pf-content pf-bounce">
+<article class="cs" style="padding: 1.1em 1.1em 0 1.1em; transition-property: opacity, transform; {{cardAnim}}">
+
+<div class="cs-text">
+<p style="font-size: 1.25em; line-height: 1.25">DriverApp — мобильное приложение для водителей Магнит Маркета (сейчас M Post) и часть системы управления транспортом TMS (Transport Management System).</p>
+<p>Логист планирует и контролирует рейс в TMS, а водитель получает этот рейс в DriverApp и выполняет его со своей стороны.</p>
+<p>На протяжении рейса обе системы работают с одними и теми же данными: подтверждение или отказ водителя, прибытие и отправление с точек и другие события из DriverApp передаются в TMS. В обратную сторону приходят назначенные рейсы и изменения, которые логист вносит в маршрут.</p>
+<p style="color: #6B6B6B">Роль: единственный дизайнер продукта · Магнит Маркет / M Post · 2025–26</p>
+
+<h2>Контекст</h2>
+<p>Раньше логисты вели рейсы в Excel, а с водителями общались через Telegram. С появлением TMS и DriverApp часть этой работы автоматизировали и перенесли в продукты: водитель сам подтверждает и выполняет рейс в приложении, а логист контролирует его через TMS.</p>
+
+<h2>Цель</h2>
+<ol>
+<li><strong>Контролировать</strong> исполнение перевозок и своевременность доставки в реальном времени. Получаем данные о прибытии на каждую точку маршрута, видим реальный маршрут водителя.</li>
+<li><strong>Разгрузить логистов</strong> — дать водителю самостоятельно подтверждать и выполнять рейс, фиксировать прибытие и отправление на точках, а логисту — контролировать процесс через TMS и подключаться только там, где это необходимо.</li>
+<li><strong>Работа с электронными документами</strong> — подписание титулов в электронной транспортной накладной.</li>
+</ol>
+
+<h2>Моя роль</h2>
+<p>Единственный дизайнер продукта в команде. Проектировал DriverApp с нуля и продолжал развивать его после запуска: исследовал процесс вместе с командой, прорабатывал пользовательские сценарии с аналитиками и бизнесом, проектировал интерфейсы и сопровождал реализацию.</p>
+
+<h2>Начало — исследование</h2>
+<h3>Поехали в поля</h3>
+<p>Для начала хотелось понять, как вообще выглядит обычный день водителя и что происходит с рейсом в реальности. Поэтому мы ездили на склад и несколько раз катались с водителями по маршрутам: смотрели, как проходит погрузка и разгрузка, что происходит на ПВЗ, с какими документами они работают и как общаются с логистами.</p>
+</div>
+<blockquote class="cs-note"><div class="cs-label">Наблюдение</div><p>Оказалось, что реальный рейс не всегда идёт строго по плану. Например, ПВЗ могут открываться в разное время, где-то идёт ревизия, где-то появляется новая точка — поэтому иногда водитель меняет порядок и едет не так, как точки стоят в маршруте. Так же на некоторых точках водитель ещё <strong>забирает возвратный груз</strong>.</p></blockquote>
+<div class="cs-text">
+<h3>Многое держалось на бумаге и чатах</h3>
+<p>Основным документом был бумажный АПП: по нему водитель сверял груз при погрузке, с ним же работал на ПВЗ.</p>
+<p>Большая часть коммуникации с логистами происходила в Telegram. Там водитель узнавал об изменениях, подтверждал рейс, писал о загрузке и сообщал о завершении работы. Логисты пробовали перенести часть этого процесса в Telegram-бота, но в итоге водители всё равно продолжали пользоваться общим чатом.</p>
+</div>
+<blockquote class="cs-note"><div class="cs-label">Наблюдение</div><p>За общим чатом не всегда получалось следить, особенно во время рейса. Водителю приходилось постоянно на него отвлекаться, а важные изменения могли просто потеряться среди других сообщений.</p></blockquote>
+<div class="cs-text">
+<h3>Посмотрели, как это делают другие</h3>
+<p>Взяли за основу флоу Яндекс и Ozon, адаптировали под свои требования, убрали шаги со сканированием QR-кодов, фото документов и навигатором. Оставили только фиксацию времени событий.</p>
+<h3>Собрали первый флоу</h3>
+<p>На основе всего, что узнали, собрали упрощённый сценарий первой версии приложения. С него и начали проектирование.</p>
+</div>
+<figure><div class="cs-media is-white"><img src="assets/case-flow.jpg" alt="Схема упрощённого флоу первой версии приложения" width="2400" height="1350"></div><figcaption>Упрощённый флоу, с которого начали</figcaption></figure>
+
+<div class="cs-text">
+<h2>Авторизация — ознакомление с инструкцией</h2>
+<p>Для первого входа предусмотрено обязательное ознакомление с инструкцией — это нужно и для понимания процесса водителем, и по юридическим требованиям.</p>
+<p style="color: #6B6B6B">Инструкцию также сверстал самостоятельно на Tilda.</p>
+</div>
+<figure><div class="cs-media is-white"><img src="assets/case-onboarding.jpg" alt="Экраны первого входа и ознакомления с инструкцией" width="2400" height="1385"></div></figure>
+
+<div class="cs-text">
+<h2>Рейсы — подтверждение</h2>
+<p>После того как логист спланирует и назначит рейс в TMS, он появляется у водителя в DriverApp.</p>
+<p>И первый раздел приложения — это как раз <strong>список рейсов</strong>, назначенных водителю. Они разделены на ближайший и предстоящие, но находятся на одном экране, чтобы водитель сразу видел всё и не переключался между разделами.</p>
+<p>Далее водитель должен подтвердить рейс. <strong>Подтверждение мы специально разместили внутри рейса:</strong> сначала водитель открывает его, знакомится с маршрутом и только после этого подтверждает.</p>
+<p>Если водитель понимает, что не сможет выполнить рейс, он может его отклонить, указав причину. Информация об отказе появится в мониторинге рейсов в <strong>TMS</strong>, где логист сможет найти замену, чтобы рейс не сорвался.</p>
+</div>
+<figure><div class="cs-media" style="background: #DFDFDF"><video src="assets/case-confirm.mp4" autoplay muted loop playsinline aria-label="Видео: подтверждение рейса"></video></div><figcaption>Подтверждение рейса</figcaption></figure>
+<figure><div class="cs-media is-tall"><img src="assets/case-card-states.jpg" alt="Стейты карточки рейса" width="1678" height="1892"></div><figcaption>Стейты карточки рейса</figcaption></figure>
+
+<div class="cs-text">
+<h2>Исполнение рейсов</h2>
+<p>После начала рейса водитель переходит к его выполнению. На <strong>странице рейса</strong> собрали всё необходимое для работы с маршрутом и отметок на каждой точке.</p>
+</div>
+<figure><div class="cs-media is-white is-tall"><img src="assets/case-trip-page.jpg" alt="Страница рейса с подписями к элементам" width="2204" height="2210"></div></figure>
+<div class="cs-text">
+<p>Первое событие и первая точка в маршруте — это всегда <strong>погрузка на складе</strong>. Как только водитель приезжает на склад, он отмечается <strong>«Я на месте»</strong>. Координаты и время улетают в TMS.</p>
+</div>
+<aside class="cs-note"><div class="cs-label">Важно</div><p>Т.к. основная задача приложения — это <strong>контроль своевременности доставки</strong> (On-time delivery), то <strong>доступ к геолокации</strong> очень важен для работы приложения. Поэтому мы проверяем его при каждой отметке водителя и блокируем дальнейший флоу, если доступа нет.</p></aside>
+<figure><div class="cs-media is-tall"><img src="assets/case-arrival.jpg" alt="Схема фиксации прибытия на точку" width="2083" height="2400"></div></figure>
+<div class="cs-text">
+<p>После того, как водитель отметился о <strong>прибытии на точку</strong>, событие сменяется на <strong>отправление с точки</strong> и так далее.</p>
+</div>
+<aside class="cs-note"><div class="cs-label">Деталь</div><p><strong>«Погрузку»</strong> и <strong>«Возвраты»</strong> мы подсвечиваем дополнительно и отдельно напоминаем о них в боттомшите, т.к. основная работа водителей на пунктах — это разгрузка, а погрузка бывает не так часто. Бывало, что водители быстро разгружали товары и «убегали», забыв про то, что нужно забрать возвраты из ПВЗ или что есть ещё и погрузка. Таким образом мы повлияли на <strong>своевременность возврата посылок</strong>.</p></aside>
+<figure><div class="cs-media" style="background: #DFDFDF"><video src="assets/case-points.mp4" autoplay muted loop playsinline aria-label="Видео: отметки на точках маршрута"></video></div></figure>
+<div class="cs-text">
+<p>По мере прохождения маршрута прогресс убывает, пока в конце водитель не <strong>завершает рейс</strong> (это по сути отправление с последней точки).</p>
+</div>
+<figure><div class="cs-media is-tall"><img src="assets/case-finish.jpg" alt="Завершение рейса" width="2304" height="2150"></div></figure>
+<blockquote class="cs-note"><div class="cs-label">Почему такой прогресс</div><p>Мы проводили опросы и интервью с водителями, и большинству привычен именно убывающий прогресс — по аналогии с такси или навигатором.</p></blockquote>
+<figure><div class="cs-media is-white"><img src="assets/case-progress.jpg" alt="Финальный вариант прогресс-бара, альтернативы и референсы" width="2148" height="1454"></div></figure>
+
+<div class="cs-text">
+<h2>Один рейс — две системы</h2>
+<p>DriverApp и TMS работают с одним рейсом на протяжении всего его жизненного цикла. Водитель выполняет рейс через мобильное приложение, а логист контролирует его и при необходимости управляет им через TMS.</p>
+<h3>Водитель выполняет — логист контролирует</h3>
+<p>Когда водитель отмечает прибытие или отправление в DriverApp, событие передаётся в TMS. В мониторинге логист видит плановое и фактическое время по каждой точке маршрута, а также кем была поставлена отметка — водителем или логистом.</p>
+</div>
+<figure><div class="cs-media"><img src="assets/case-tms.jpg" alt="Связка DriverApp и мониторинга TMS" width="2400" height="1852"></div></figure>
+<div class="cs-text">
+<h3>Управление маршрутом</h3>
+<p>До и во время рейса маршрут может измениться. Через TMS логист может добавить или удалить точку, поменять порядок точек или полностью отменить рейс. DriverApp получает изменения, а водитель — уведомление об обновлении рейса.</p>
+</div>
+<figure><div class="cs-media"><img src="assets/case-route-change.jpg" alt="Изменение рейса: уведомление и обновлённый маршрут" width="2400" height="1565"></div></figure>
+<div class="cs-text">
+<h3>Если водитель не может продолжить сам</h3>
+<p>В штатном сценарии все события отмечает водитель. Но в дороге может пропасть интернет, возникнуть проблема с телефоном и т.п., из-за чего водитель не сможет поставить отметку.</p>
+<p>Поэтому логист тоже может отмечать прибытие или отправление через TMS. Это позволяет не останавливать рейс в системе и сохранить фактические события для мониторинга и аналитики.</p>
+<p>Мы учитывали ситуации, когда, например, водитель нажимает <strong>«Я на месте»</strong>, а логист уже успел отметить его прибытие в TMS.</p>
+</div>
+<figure><div class="cs-media is-tall"><img src="assets/case-logist.jpg" alt="Экран: логист уже отметил прибытие" width="2304" height="2150"></div></figure>
+<div class="cs-text">
+<h3>Учли и неидеальные сценарии</h3>
+<p>Продумали и технические состояния, которые могут возникнуть: пропало соединение, устарела версия приложения, возникла ошибка или работе мешает VPN. В каждом случае водитель понимает, что произошло и что делать дальше.</p>
+</div>
+<figure><div class="cs-media"><img src="assets/case-errors.jpg" alt="Экраны технических ошибок" width="2400" height="988"></div></figure>
+
+<div class="cs-text">
+<h2>Итог: вернулись в поля — уже с работающим продуктом</h2>
+<p>Когда первая рабочая версия была готова, мы снова поехали с водителями — на этот раз уже проверять приложение в реальном рейсе.</p>
+<p>Разделились на две команды и поехали с двумя водителями. Водители проходили маршрут через DriverApp и отмечали прибытие и отправление на точках, а мы параллельно сидели с ноутбуками в мониторинге TMS и проверяли, как события приходят и отображаются у логиста.</p>
+<p>В нашем рейсе всё прошло нормально, а у второй команды проявились технические проблемы с передачей событий. Их зафиксировали прямо по ходу поездки и передали в работу.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 0px; margin-top: 3em">
+<button class="pill-btn" type="button" onClick="{{goBack}}" style="height: 2.25em; display: flex; align-items: center; padding: 0 1.1em; border: 0; border-radius: 999px; background: #F3F3F3; font: inherit; color: #141414">Назад к работам</button>
+<button type="button" disabled title="Следующий кейс скоро появится" style="height: 2.25em; display: flex; align-items: center; padding: 0 1.1em; border: 0; border-radius: 999px; background: #F3F3F3; font: inherit; color: #8A8A8A; cursor: default">Следующий кейс — скоро</button>
+<a class="pill-btn" href="https://t.me/bogdanovfirst" target="_blank" rel="noopener" style="height: 2.25em; display: flex; align-items: center; padding: 0 1.1em; border-radius: 999px; background: #F3F3F3; color: #141414; text-decoration: none">Telegram →</a>
+</div>
+
+</article>
+</div>
+</sc-if>
+</div>
+
+<div class="pf-col" style="{{nextCol}}">
+<div class="pf-pw pf-npill" style="position: sticky; top: {{centerTop}}px; z-index: 3; {{casePillWrap}}">
+<button type="button" disabled title="Следующий кейс скоро появится" style="height: 2.25em; width: 100%; box-sizing: border-box; display: flex; align-items: center; padding: 0 1.1em; border: 0; border-radius: 999px; background: #F3F3F3; font: inherit; color: #8A8A8A; text-align: left; white-space: nowrap; overflow: hidden; cursor: default">Следующий кейс</button>
+</div>
+</div>
+
+<div class="pf-col" style="{{tgCol}}">
+<div class="pf-pw pf-tpill" style="position: sticky; top: {{centerTop}}px; z-index: 3; {{casePillWrap}}">
+<a class="pill-btn" href="https://t.me/bogdanovfirst" target="_blank" rel="noopener" style="height: 2.25em; width: 100%; box-sizing: border-box; display: flex; align-items: center; padding: 0 1.1em; border-radius: 999px; background: #F3F3F3; color: #141414; text-decoration: none; white-space: nowrap; overflow: hidden">Telegram</a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</template>
+<script>
+/* Мини-движок страницы: заполняет шаблон данными из Component.renderVals()
+   и обновляет только изменившиеся места, чтобы CSS-анимации не обрывались. */
+var DCLogic = (function () {
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (patch) {
+    if (typeof patch === 'function') patch = patch(this.state);
+    Object.assign(this.state, patch);
+    if (this.__update) this.__update();
+  };
+  DCLogic.prototype.forceUpdate = function () { if (this.__update) this.__update(); };
+  return DCLogic;
+})();
+
+function mountDC(Component, tpl, root) {
+  var params = new URLSearchParams(location.search);
+  var props = { intro: params.get('intro') !== '0', startTab: params.get('tab') || 'works' };
+  var c = new Component(props);
+  c.props = props;
+  var vals = {};
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+
+  function get(path) {
+    path = path.trim();
+    if (path === 'true') return true;
+    if (path === 'false') return false;
+    return path.split('.').reduce(function (o, k) { return o == null ? undefined : o[k]; }, vals);
+  }
+  function interp(str) {
+    return str.replace(HOLE, function (_, p) { var v = get(p); return v == null ? '' : String(v); });
+  }
+
+  // Каждая привязка — функция, которая обновляет свой кусочек DOM.
+  function bind(node, list) {
+    if (node.nodeType === 3) {
+      if (node.nodeValue.indexOf('{{') >= 0) {
+        var t = node.nodeValue;
+        list.push(function () { var v = interp(t); if (node.nodeValue !== v) node.nodeValue = v; });
+      }
+      return;
+    }
+    if (node.nodeType !== 1) return;
+
+    if (node.tagName === 'SC-IF') {
+      var cond = (node.getAttribute('value') || '').replace(/^\s*\{\{|\}\}\s*$/g, '');
+      var proto = document.createDocumentFragment();
+      while (node.firstChild) proto.appendChild(node.firstChild);
+      var anchor = document.createComment('if');
+      node.parentNode.replaceChild(anchor, node);
+      var mounted = null, inner = [];
+      list.push(function () {
+        var on = !!get(cond);
+        if (on && !mounted) {
+          var frag = proto.cloneNode(true);
+          inner = [];
+          Array.prototype.slice.call(frag.childNodes).forEach(function (ch) { bind(ch, inner); });
+          mounted = Array.prototype.slice.call(frag.childNodes);
+          anchor.parentNode.insertBefore(frag, anchor);
+        } else if (!on && mounted) {
+          mounted.forEach(function (n) { if (n.parentNode) n.parentNode.removeChild(n); });
+          mounted = null; inner = [];
+        }
+        inner.forEach(function (f) { f(); });
+      });
+      return;
+    }
+
+    Array.prototype.slice.call(node.attributes).forEach(function (a) {
+      var name = a.name, val = a.value;
+      if (name.indexOf('hint-') === 0) { node.removeAttribute(name); return; }
+      if (val.indexOf('{{') < 0) return;
+      var path = val.replace(/^\s*\{\{|\}\}\s*$/g, '');
+      if (name === 'ref') {
+        node.removeAttribute(name);
+        var fn = get(path); if (typeof fn === 'function') fn(node);
+        return;
+      }
+      if (name.indexOf('on') === 0) {
+        node.removeAttribute(name);
+        node.addEventListener(name.slice(2).toLowerCase(), function (e) {
+          var h = get(path); if (typeof h === 'function') h(e);
+        });
+        return;
+      }
+      list.push(function () { var v = interp(val); if (node.getAttribute(name) !== v) node.setAttribute(name, v); });
+    });
+    Array.prototype.slice.call(node.childNodes).forEach(function (ch) { bind(ch, list); });
+  }
+
+  var bindings = [];
+  var queued = false, mountedOnce = false;
+  function render() { vals = c.renderVals(); bindings.forEach(function (f) { f(); }); }
+  c.__update = function () {
+    if (!mountedOnce) return;
+    if (queued) return;
+    queued = true;
+    Promise.resolve().then(function () { queued = false; render(); });
+  };
+
+  vals = c.renderVals();
+  var frag = tpl.content.cloneNode(true);
+  Array.prototype.slice.call(frag.childNodes).forEach(function (ch) { bind(ch, bindings); });
+  root.appendChild(frag);
+  render();
+  mountedOnce = true;
+  if (c.componentDidMount) c.componentDidMount();
+}
+
+</script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    var t = props && props.startTab;
+    var view = t === 'about' ? 'about' : (t === 'case' ? 'case' : 'works');
+    this.state = { ph: -1, tab: view === 'case' ? 'works' : view, hdr: view === 'case' ? 'case' : 'main', shown: view, contentIn: true, centerTop: 420, mobile: false, rw: 0, pl: 0, nw: 0, wW: 0, aW: 0, bW: 0, xW: 0, tW: 0, settling: false };
+    this.timers = [];
+    this.el = {};
+    var self = this;
+    this.refs2 = {};
+    ['root', 'scroller', 'row', 'mName', 'mWorks', 'mAbout', 'mBack', 'mNext', 'mTg'].forEach(function (k) { self.refs2[k] = function (e) { self.el[k] = e; if (e && self.mounted) self.schedule(); }; });
+  }
+  componentDidMount() {
+    this.measure = () => {
+      var row = this.el.row;
+      var h = window.innerHeight || 900, w = window.innerWidth || 1440;
+      var next = { centerTop: Math.max(120, Math.round(Math.min(h, 1100) / 2 - 20)), mobile: w <= 760 };
+      if (row) {
+        var cs = getComputedStyle(row);
+        next.rw = Math.floor(row.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight));
+        next.pl = Math.round(parseFloat(cs.paddingLeft) + row.getBoundingClientRect().left);
+      }
+      var wd = (k) => this.el[k] ? Math.ceil(this.el[k].getBoundingClientRect().width) : 0;
+      next.nw = wd('mName'); next.wW = wd('mWorks'); next.aW = wd('mAbout'); next.bW = wd('mBack'); next.xW = wd('mNext'); next.tW = wd('mTg');
+      var s = this.state, changed = false;
+      for (var k in next) if (next[k] !== s[k]) changed = true;
+      if (changed) this.setState(next);
+    };
+    this.mounted = true;
+    window.addEventListener('resize', this.measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.measure());
+    this.schedule();
+    this.later(4000, () => this.startIntro(true));
+  }
+  whenVisible(fn) {
+    var done = false, go = () => { if (done) return; done = true; if (this.io) this.io.disconnect(); document.removeEventListener('visibilitychange', onVis); fn(); };
+    var onVis = () => { if (document.visibilityState === 'visible' && this.inView) go(); };
+    document.addEventListener('visibilitychange', onVis);
+    if (window.IntersectionObserver && this.el.root) {
+      this.io = new IntersectionObserver((es) => { this.inView = es.some((e) => e.isIntersecting); onVis(); });
+      this.io.observe(this.el.root);
+    } else { this.inView = true; onVis(); }
+  }
+  schedule() {
+    if (this.raf) return;
+    this.raf = requestAnimationFrame(() => {
+      this.raf = 0;
+      this.measure();
+      if (!this.ro && this.el.row && window.ResizeObserver) { this.ro = new ResizeObserver(() => this.measure()); this.ro.observe(this.el.row); }
+      if (this.el.row && this.el.mName && !this.waiting) { this.waiting = true; this.whenVisible(() => this.startIntro()); }
+    });
+  }
+  startIntro() {
+    if (this.started) return;
+    this.started = true;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.props.intro === false || reduce || this.state.hdr === 'case') { this.setState({ ph: 3 }); return; }
+    var m = (window.innerWidth || 1440) <= 760;
+    this.later(150, () => this.setState({ ph: 0 }));
+    this.later(1150, () => this.setState({ ph: 1 }));
+    this.later(m ? 1550 : 2150, () => this.setState({ ph: 2 }));
+    this.later(m ? 2200 : 2250, () => this.setState({ ph: 3 }));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.measure);
+    if (this.ro) this.ro.disconnect();
+    this.timers.forEach(clearTimeout);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.raf2) cancelAnimationFrame(this.raf2);
+    if (this.io) this.io.disconnect();
+  }
+  later(ms, fn) { this.timers.push(setTimeout(fn, ms)); }
+  toTop(smooth) { var sc = this.el.scroller; if (!sc) return; try { sc.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' }); } catch (e) { sc.scrollTop = 0; } }
+  scrollHome(fn) {
+    var sc = this.el.scroller;
+    var from = sc ? sc.scrollTop : 0;
+    if (!sc || from < 2) { fn(); return; }
+    this.busy = true;
+    var dur = Math.min(900, 320 + from * 0.12), t0 = null;
+    var ease = (x) => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+    var step = (ts) => {
+      if (t0 === null) t0 = ts;
+      var k = Math.min(1, (ts - t0) / dur);
+      sc.scrollTop = from * (1 - ease(k));
+      if (k < 1) this.raf2 = requestAnimationFrame(step);
+      else { this.busy = false; sc.scrollTop = 0; this.later(60, fn); }
+    };
+    this.raf2 = requestAnimationFrame(step);
+  }
+  go(t) {
+    var s = this.state;
+    if (this.busy || s.tab === t || s.ph < 3 || s.hdr !== 'main') return;
+    this.scrollHome(() => this.goNow(t));
+  }
+  goNow(t) {
+    this.setState({ contentIn: false });
+    this.later(180, () => { this.toTop(false); this.setState({ tab: t, settling: true }); });
+    this.later(660, () => this.setState({ shown: t }));
+    this.later(720, () => this.setState({ contentIn: true }));
+    this.later(800, () => this.setState({ settling: false }));
+  }
+  swapHeader(to, after) {
+    this.setState({ contentIn: false, slow: true });
+    this.later(280, () => this.setState({ hdr: 'none' }));
+    this.later(740, () => { this.toTop(false); this.setState(Object.assign({ hdr: to, settling: true }, after)); });
+    this.later(1380, () => this.setState({ contentIn: true }));
+    this.later(1460, () => this.setState({ settling: false, slow: false }));
+  }
+  openCase(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var s = this.state;
+    if (this.busy || s.ph < 3 || s.hdr !== 'main') return;
+    this.scrollHome(() => this.swapHeader('case', { shown: 'case' }));
+  }
+  goBack() {
+    if (this.busy || this.state.hdr !== 'case') return;
+    this.scrollHome(() => this.swapHeader('main', { tab: 'works', shown: 'works' }));
+  }
+  renderVals() {
+    var s = this.state, ph = s.ph, m = s.mobile;
+    var E = 'cubic-bezier(.65,0,.25,1)';
+    var SPRING = (s.slow ? '625ms' : '520ms') + ' cubic-bezier(.3,1.15,.5,1)';
+    var INms = s.slow ? 440 : 360;
+    var IN = INms + 'ms cubic-bezier(.6,0,.4,1)';
+    var works = s.tab === 'works', hdr = s.hdr;
+    var rw = s.rw, nw = s.nw, wW = s.wW, aW = s.aW, bW = s.bW, xW = s.xW, tW = s.tW;
+    var W = { n: 0, w: 0, a: 0, b: 0, c: 0, x: 0, t: 0 };
+    if (hdr === 'main') {
+      W.n = nw + 2;
+      if (ph <= 0) { W.w = 0; W.a = 0; }
+      else if (works) { W.w = rw - nw - aW; W.a = aW; }
+      else { W.w = wW; W.a = rw - nw - wW; }
+    } else if (hdr === 'case') { W.b = bW; W.x = xW; W.t = tW; W.c = rw - bW - xW - tW; }
+    var M = { w: 0, a: 0, b: 0, c: 0 };
+    if (hdr === 'main') {
+      if (ph <= 1) { M.w = Math.floor(rw / 2); M.a = rw - M.w; }
+      else if (works) { M.w = rw - aW; M.a = aW; }
+      else { M.w = wW; M.a = rw - wW; }
+    } else if (hdr === 'case') { M.b = bW; M.c = rw - bW; }
+    for (var k in W) W[k] = Math.max(0, Math.floor(W[k]));
+    for (var j in M) M[j] = Math.max(0, Math.floor(M[j]));
+    var tr = hdr === 'none' ? IN : SPRING;
+    var FADE = hdr === 'none' ? 'opacity 140ms ease ' + (INms - 140) + 'ms' : 'opacity 300ms ease';
+    var col = (w, op) => 'flex: none; width: ' + w + 'px; opacity: ' + op + '; transition: width ' + tr + ', ' + FADE + ';';
+    var mainOn = hdr === 'main';
+    var on = ph >= 1;
+    var visible = ph >= 3 && s.contentIn;
+    var cardAnim = visible
+      ? 'opacity: 1; transform: translateY(0px); transition-duration: 450ms, 550ms; transition-timing-function: ease, ' + E + ';'
+      : 'opacity: 0; transform: translateY(48px); transition-duration: ' + (s.slow ? '320ms, 340ms' : '220ms, 240ms') + '; transition-timing-function: ease-in, cubic-bezier(.55,0,.75,.2);';
+    var dl = {};
+    for (var i = 0; i < 6; i++) dl['c' + i] = visible ? (i * 50) + 'ms' : '0ms';
+    var C = s.centerTop, pl = s.pl;
+    var fx = !m && ph >= 2 && !s.settling && rw > 0;
+    var stk = (top) => 'position: sticky; top: ' + top + 'px;';
+    var pos = {
+      n: stk(C),
+      w: mainOn && works ? stk(20) : stk(C),
+      a: mainOn && !works ? stk(20) : stk(C),
+      b: stk(C),
+      c: stk(20),
+      x: stk(C),
+      t: stk(C)
+    };
+    var yearsOn = works && mainOn && (m ? ph >= 2 : ph >= 1);
+    return {
+      refs: this.refs2,
+      centerTop: s.centerTop,
+      rowCls: (works ? 'is-works' : 'is-about') + (mainOn ? '' : ' hdr-off'),
+      rowVars: '--pt: ' + (mainOn && ph < 2 ? Math.max(12, s.centerTop - 24) : 12) + 'px; --wt: ' + tr + '; --mw1: ' + M.w + 'px; --mw2: ' + M.a + 'px; --mw3: ' + M.b + 'px; --mw4: ' + M.c + 'px; --mw5: 0px; --mw6: 0px;',
+      nameCol: 'max-width: ' + (nw ? W.n + 'px' : (mainOn ? '40em' : '0px')) + '; opacity: ' + (mainOn ? 1 : 0) + '; transition: max-width ' + tr + ', ' + FADE + ';',
+      nameStyle: 'opacity: ' + (ph >= 0 ? 1 : 0) + '; background: ' + (on ? '#F3F3F3' : 'rgba(243,243,243,0)') + '; transition: opacity 600ms ease, background 1000ms ease;',
+      subStyle: 'max-width: ' + (on ? '14em' : '0em') + '; opacity: ' + (on ? 1 : 0) + '; transition: max-width 1000ms ' + E + ', opacity 1000ms ease;',
+      nmw: ph >= 1 ? '40em' : '12em',
+      worksCol: col(W.w, mainOn && on ? 1 : 0),
+      aboutCol: col(W.a, mainOn && on ? 1 : 0),
+      backCol: col(W.b, hdr === 'case' ? 1 : 0),
+      caseCol: col(W.c, hdr === 'case' ? 1 : 0),
+      nextCol: col(W.x, hdr === 'case' ? 1 : 0),
+      tgCol: col(W.t, hdr === 'case' ? 1 : 0),
+      worksPillWrap: 'opacity: ' + (on ? 1 : 0) + '; transition: opacity 600ms ease;',
+      aboutPillWrap: 'opacity: ' + (on ? 1 : 0) + '; transition: opacity 600ms ease;',
+      backPillWrap: '',
+      casePillWrap: '',
+      worksBg: works && ph >= 2 ? '#E9E9E9' : '#F3F3F3',
+      aboutBg: !works && ph >= 2 ? '#E9E9E9' : '#F3F3F3',
+      yearsStyle: 'max-width: ' + (yearsOn ? '6em' : '0em') + '; opacity: ' + (yearsOn ? 1 : 0) + '; transition: max-width 850ms ' + E + ', opacity 400ms ease;',
+      worksTop: works && hdr === 'main' ? 20 : s.centerTop,
+      aboutTop: !works && hdr === 'main' ? 20 : s.centerTop,
+      worksColor: works ? '#141414' : '#6B6B6B',
+      aboutColor: works ? '#6B6B6B' : '#141414',
+      worksActive: works ? 'true' : 'false',
+      aboutActive: works ? 'false' : 'true',
+      showWorks: s.shown === 'works',
+      showAbout: s.shown === 'about',
+      showCase: s.shown === 'case',
+      cardAnim: cardAnim,
+      dl: dl,
+      goWorks: () => this.go('works'),
+      goAbout: () => this.go('about'),
+      openCase: (e) => this.openCase(e),
+      goBack: () => this.goBack()
+    };
+  }
+}
+mountDC(Component, document.getElementById('tpl'), document.getElementById('app'));
+</script>
+</body>
+</html>
